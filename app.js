@@ -70,5 +70,9 @@ mongoose
     app.listen(port, () => {
       console.log(`Example app listening at http://localhost:${port}/`)
     })
+    const io = require('socket.io')(server)
+    io.on('connection', socket => {
+      console.log('Client connected')
+    })
   })
   .catch((err) => console.log(err))
